@@ -35,9 +35,9 @@ void enqueue(Queue *queue, Customer *node);
  */
 void dequeue(Queue *queue, Customer *preNode, Customer *node);
 
-void front(Queue *queue);
+Customer * front(Queue *queue);
 
-void size(Queue *queue);
+int size(Queue *queue);
 
 void printQueue(Queue *queue);
 

@@ -96,8 +96,31 @@ void dequeue(Queue *queue, Customer *preNode, Customer *node) {
     }
 };
 
-void front(Queue *queue);
+Customer *front(Queue *queue) {
+    if (queue == NULL) {
+        printf("Error: Queue is NULL\n");
+        return NULL;
+    } else if (isEmpty(queue)) {
+        printf("Queue is empty\n");
+        return NULL;
+    } else {
+        return queue->front;
+    }
+};
 
-void size(Queue *queue);
+int size(Queue *queue) {
+    int count = 0;
+    if (queue == NULL) {
+        printf("Error: Queue is NULL\n");
+        return -1;
+    } else if (!isEmpty(queue)) {
+        Customer *current = queue->front;
+        while (current != NULL) {
+            count++;
+            current = current->next;
+        }
+    }
+    return count;
+};
 
 void printQueue(Queue *queue);
