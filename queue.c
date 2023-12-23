@@ -58,6 +58,9 @@ Customer *createNode(char *name, int customerNr) {
     return new;
 }
 
+/*
+ * Customer *node : node to add
+ */
 void enqueue(Queue *queue, Customer *node) {
     if (queue == NULL) {
         printf("Error: Queue is NULL\n");
@@ -75,7 +78,23 @@ void enqueue(Queue *queue, Customer *node) {
     }
 };
 
-void dequeue(Queue *queue);
+/*
+ * Customer *preNode: previous node to delete
+ * Customer *node : node to delete
+ */
+void dequeue(Queue *queue, Customer *preNode, Customer *node) {
+    if (queue == NULL) {
+        printf("Error: Queue is NULL\n");
+        return;
+    } else if (isEmpty(queue)) {
+        printf("Queue is empty\n");
+        return;
+    } else {
+        // Remove node from the queue and free them
+        preNode->next = node->next;
+        free(node);
+    }
+};
 
 void front(Queue *queue);
 

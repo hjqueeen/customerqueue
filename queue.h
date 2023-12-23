@@ -24,9 +24,16 @@ int isEmpty(Queue *queue);
 
 Customer *createNode(char *name, int customerNr);
 
+/*
+ * Customer *node : node to add
+ */
 void enqueue(Queue *queue, Customer *node);
 
-void dequeue(Queue *queue);
+/*
+ * Customer *preNode: previous node to delete
+ * Customer *node: node to delete
+ */
+void dequeue(Queue *queue, Customer *preNode, Customer *node);
 
 void front(Queue *queue);
 
