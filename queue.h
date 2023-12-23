@@ -39,6 +39,7 @@ Customer * front(Queue *queue);
 
 int size(Queue *queue);
 
+void printNode(Customer *node);
 void printQueue(Queue *queue);
 
 //void peek(Queue *queue);

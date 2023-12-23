@@ -123,4 +123,24 @@ int size(Queue *queue) {
     return count;
 };
 
-void printQueue(Queue *queue);
+void printNode(Customer *node) {
+    if (node == NULL) {
+        return;
+    }
+    printf("Customer Number: %d\n", node->customerNumber);
+    printf("Customer Name: %s\n", node->name);
+    printf("----------------------------------------------\n");
+};
+
+void printQueue(Queue *queue) {
+    if (queue == NULL) {
+        printf("Error: Queue is NULL\n");
+        return;
+    } else if (!isEmpty(queue)) {
+        Customer *current = queue->front;
+        while (current != NULL) {
+            printNode(current);
+            current = current->next;
+        }
+    }
+};
