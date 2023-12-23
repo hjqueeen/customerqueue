@@ -46,13 +46,14 @@ int isEmpty(Queue *queue) {
     }
 };
 
-Customer *createNode(char *name, int customerNr) {
+Customer *createNode(char *firstname,char *lastname, int customerNr) {
     Customer *new = (Customer *) malloc(sizeof(Customer));
     if (new == NULL) {
         printf("Memory allocation failure\n");
         return NULL;
     }
-    strcpy(new->name, name);
+    strcpy(new->firstName, firstname);
+    strcpy(new->lastName, lastname);
     new->customerNumber = customerNr;
     new->next = NULL;
     return new;
@@ -128,7 +129,7 @@ void printNode(Customer *node) {
         return;
     }
     printf("Customer Number: %d\n", node->customerNumber);
-    printf("Customer Name: %s\n", node->name);
+    printf("Customer Name: %s %s\n", node->firstName, node->lastName);
     printf("----------------------------------------------\n");
 };
 

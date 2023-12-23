@@ -2,7 +2,8 @@
 #define CUSTOMERQUEUE_QUEUE_H
 
 typedef struct Customer {
-    char name[50];
+    char firstName[50];
+    char lastName[50];
     int customerNumber;
     struct Customer *next;
 } Customer;
@@ -22,7 +23,7 @@ void init(Queue *queue);
  */
 int isEmpty(Queue *queue);
 
-Customer *createNode(char *name, int customerNr);
+Customer *createNode(char *firstname,char *lastname, int customerNr);
 
 /*
  * Customer *node : node to add
@@ -35,11 +36,12 @@ void enqueue(Queue *queue, Customer *node);
  */
 void dequeue(Queue *queue, Customer *preNode, Customer *node);
 
-Customer * front(Queue *queue);
+Customer *front(Queue *queue);
 
 int size(Queue *queue);
 
 void printNode(Customer *node);
+
 void printQueue(Queue *queue);
 
 //void peek(Queue *queue);
