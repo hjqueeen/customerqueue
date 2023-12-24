@@ -23,18 +23,25 @@ void init(Queue *queue);
  */
 int isEmpty(Queue *queue);
 
-Customer *createNode(char *firstname,char *lastname, int customerNr);
+Customer *createNode(char *firstname, char *lastname, int customerNr);
 
 /*
- * Customer *node : node to add
+ * @param Customer *node : node to add
+ * return 0: enqueue success
+ * return -1: enqueue failed
  */
-void enqueue(Queue *queue, Customer *node);
+int enqueue(Queue *queue, Customer *node);
+
+/* Find the previous node of the node that matches the entered information. */
+Customer *findPreNode(Queue *queue, char *firstName, char *lastName);
 
 /*
- * Customer *preNode: previous node to delete
- * Customer *node: node to delete
+ * @param Customer *preNode: previous node of node to delete
+ * @param Customer *node: node to delete
+ * return 0: dequeue success
+ * return -1: dequeue failed
  */
-void dequeue(Queue *queue, Customer *preNode, Customer *node);
+int dequeue(Queue *queue, Customer *preNode, Customer *node);
 
 Customer *front(Queue *queue);
 
