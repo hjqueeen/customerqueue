@@ -177,7 +177,7 @@ void printNode(Customer *node) {
     }
     printf("Customer Number: %d\n", node->customerNumber);
     printf("Customer Name: %s %s\n", node->firstName, node->lastName);
-    printf("----------------------------------------------\n");
+    printf("------------------------------------\n");
 };
 
 void printQueue(Queue *queue) {

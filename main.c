@@ -19,13 +19,14 @@ int main() {
         char firstName[50];
         char lastName[50];
 
+        printf("=======================\n");
         printf("1: Add Customer\n");
         printf("2: Remove Customer\n");
         printf("3: Read First Customer\n");
         printf("4: Get Queue Size\n");
         printf("5: Print Queue\n");
         printf("6: Enqueue 10 random customers\n");
-        printf("===================\n");
+        printf("=======================\n");
         printf("0: Program end \n");
         scanf("%d", &code);
 
@@ -33,16 +34,16 @@ int main() {
             printf("Input wrong\n");
             continue; // Go to the start
         }
-        // Get values from the console
-        if (code == 1 || code == 2 || code == 3) {
-            printf("Firstname:");
-            scanf("%s", firstName);
-            printf("Lastname:");
-            scanf("%s", lastName);
-        }
+
         Customer *customer;
         switch (code) {
             case 1:
+                // Get values from the console
+                printf("Firstname:");
+                scanf("%s", firstName);
+                printf("Lastname:");
+                scanf("%s", lastName);
+
                 // Create customer
                 customer = createNode(firstName, lastName, ++customerNr);
                 if (customer == NULL) {
@@ -91,6 +92,7 @@ int main() {
                         enqueue(myQueue, customer);
                     }
                 }
+                printf("Success: Enqueue 10 random customers\n");
             default:
                 break;
         }

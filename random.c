@@ -1,10 +1,11 @@
 #include "random.h"
 #include <stdlib.h>
+#include <ctype.h>
 
 void generateRandomName(char *name, int length) {
     // Define vowels and consonants
-    char vowels[] = "AEIOU";
-    char consonants[] = "BCDFGHJKLMNPQRSTVWXYZ";
+    char vowels[] = "aeiou";
+    char consonants[] = "bcdfghjklmnpqrstvwxyz";
 
     for (int i = 0; i < length; i++) {
         if (i % 2 == 0) {
@@ -16,5 +17,6 @@ void generateRandomName(char *name, int length) {
         }
     }
 
+    name[0] = toupper(name[0]); // Convert the first character to uppercase
     name[length] = '\0'; // Add null character at the end of the string
 }
