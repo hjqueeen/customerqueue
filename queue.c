@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 //typedef struct Customer {
 //    char name[50];
 //    int customerNumber;
@@ -20,6 +21,7 @@ Queue *create() {
         printf("Memory allocation failure\n");
         return NULL;
     }
+    init(queue);
     return queue;
 }
 
@@ -96,7 +98,7 @@ Customer *findPreNode(Queue *queue, char *firstName, char *lastName) {
     // Search from second node
     Customer *current = queue->front->next;
     while (current != NULL) {
-        if (current->firstName == firstName && current->lastName == lastName) {
+        if (strcmp(current->firstName, firstName) == 0 && strcmp(current->lastName, lastName) == 0) {
             return current;
         }
         current = current->next;
@@ -105,26 +107,42 @@ Customer *findPreNode(Queue *queue, char *firstName, char *lastName) {
     return NULL;
 };
 
+int dequeue(Queue *queue) {
+    if (queue == NULL || isEmpty(queue)) {
+        printf("Error: Queue is NULL or empty\n");
+        return -1;
+    }
+    Customer *toDequeue = queue->front;
+    queue->front = queue->front->next;
+    if (queue->front == NULL) {
+        queue->rear = NULL;
+    }
+    free(toDequeue);
+    return 0;
+}
+
+
+
 /*
  * Customer *preNode: previous node to delete
  * Customer *node : node to delete
  * return 0: dequeue success
  * return -1: dequeue failed
  */
-int dequeue(Queue *queue, Customer *preNode, Customer *node) {
-    if (queue == NULL || preNode == NULL || node == NULL) {
-        printf("Error: Queue or Node is NULL\n");
-        return -1;
-    } else if (isEmpty(queue)) {
-        printf("Queue is empty\n");
-        return -1;
-    } else {
-        // Remove node from the queue and free them
-        preNode->next = node->next;
-        free(node);
-        return 0;
-    }
-};
+//int dequeue(Queue *queue, Customer *preNode, Customer *node) {
+//    if (queue == NULL || preNode == NULL || node == NULL) {
+//        printf("Error: Queue or Node is NULL\n");
+//        return -1;
+//    } else if (isEmpty(queue)) {
+//        printf("Queue is empty\n");
+//        return -1;
+//    } else {
+//        // Remove node from the queue and free them
+//        preNode->next = node->next;
+//        free(node);
+//        return 0;
+//    }
+//};
 
 Customer *front(Queue *queue) {
     if (queue == NULL) {

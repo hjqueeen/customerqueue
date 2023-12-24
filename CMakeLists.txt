@@ -5,4 +5,6 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(CustomerQueue main.c
         queue.h
-        queue.c)
+        queue.c
+        random.h
+        random.c)

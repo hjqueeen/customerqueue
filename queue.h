@@ -41,7 +41,8 @@ Customer *findPreNode(Queue *queue, char *firstName, char *lastName);
  * return 0: dequeue success
  * return -1: dequeue failed
  */
-int dequeue(Queue *queue, Customer *preNode, Customer *node);
+//int dequeue(Queue *queue, Customer *preNode, Customer *node);
+int dequeue(Queue *queue);
 
 Customer *front(Queue *queue);
 

@@ -61,6 +61,12 @@ build CMakeFiles/CustomerQueue.dir/queue.c.obj: C_COMPILER__CustomerQueue_unscan
   OBJECT_DIR = CMakeFiles\CustomerQueue.dir
   OBJECT_FILE_DIR = CMakeFiles\CustomerQueue.dir
 
+build CMakeFiles/CustomerQueue.dir/random.c.obj: C_COMPILER__CustomerQueue_unscanned_Debug C$:/Users/hjque/Documents/Labor$ Programm/CustomerQueue/random.c || cmake_object_order_depends_target_CustomerQueue
+  DEP_FILE = CMakeFiles\CustomerQueue.dir\random.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\CustomerQueue.dir
+  OBJECT_FILE_DIR = CMakeFiles\CustomerQueue.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target CustomerQueue
@@ -69,7 +75,7 @@ build CMakeFiles/CustomerQueue.dir/queue.c.obj: C_COMPILER__CustomerQueue_unscan
 #############################################
 # Link the executable CustomerQueue.exe
 
-build CustomerQueue.exe: C_EXECUTABLE_LINKER__CustomerQueue_Debug CMakeFiles/CustomerQueue.dir/main.c.obj CMakeFiles/CustomerQueue.dir/queue.c.obj
+build CustomerQueue.exe: C_EXECUTABLE_LINKER__CustomerQueue_Debug CMakeFiles/CustomerQueue.dir/main.c.obj CMakeFiles/CustomerQueue.dir/queue.c.obj CMakeFiles/CustomerQueue.dir/random.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\CustomerQueue.dir

@@ -1,11 +1,11 @@
 #include "queue.h"
+#include "random.h"
 #include <stdio.h>
-#include <time.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main() {
     Queue *myQueue = create();
-    init(myQueue);
 
     if (myQueue == NULL) {
         printf("Error: Queue is NULL\n");
@@ -24,11 +24,12 @@ int main() {
         printf("3: Read First Customer\n");
         printf("4: Get Queue Size\n");
         printf("5: Print Queue\n");
+        printf("6: Enqueue 10 random customers\n");
         printf("===================\n");
         printf("0: Program end \n");
         scanf("%d", &code);
 
-        if (code < 0 || code > 5) {
+        if (code < 0 || code > 6) {
             printf("Input wrong\n");
             continue; // Go to the start
         }
@@ -57,8 +58,7 @@ int main() {
                 }
                 break;
             case 2:
-                customer = findPreNode(myQueue, firstName, lastName);
-                result = dequeue(myQueue, customer, customer->next);
+                result = dequeue(myQueue);
                 if (result == -1) {
                     printf("Error: Unable to delete customer.\n");
                 } else {
@@ -74,12 +74,23 @@ int main() {
             case 4:
                 result = size(myQueue);
                 if (result > 0) {
-                    printf("Queue Size: %d", result);
+                    printf("Queue Size: %d\n", result);
                 }
                 break;
             case 5:
                 printQueue(myQueue);
                 break;
+            case 6:
+                // Initialize the random number generator
+                srand((unsigned int) time(NULL));
+                for (int i = 0; i < 10; i++) {
+                    generateRandomName(firstName, 6);
+                    generateRandomName(lastName, 4);
+                    customer = createNode(firstName, lastName, ++customerNr);
+                    if (customer != NULL) {
+                        enqueue(myQueue, customer);
+                    }
+                }
             default:
                 break;
         }
