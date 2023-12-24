@@ -1,3 +1,0 @@
-C:/Users/hjque/Documents/Labor Programm/CustomerQueue/cmake-build-debug/CMakeFiles/CustomerQueue.dir
-C:/Users/hjque/Documents/Labor Programm/CustomerQueue/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/hjque/Documents/Labor Programm/CustomerQueue/cmake-build-debug/CMakeFiles/rebuild_cache.dir
